@@ -1,0 +1,13 @@
+remote_theme: "mmistakes/minimal-mistakes"
+
+minimal_mistakes_skin: "default"
+
+title: "Hyojin Park"
+name: "Hyojin Park"
+description: "Developer Blog"
+url: "https://YOUR_GITHUB_ID.github.io"
+
+repository: "YOUR_GITHUB_ID/YOUR_GITHUB_ID.github.io"
+
+plugins:
+  - jekyll-include-cache
