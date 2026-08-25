@@ -1,0 +1,247 @@
+---
+---
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+
+
+// Zara style: clean sans-serif typography, high contrast black & white
+$sans-serif: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR";
+$serif: $sans-serif;
+$primary-font: $sans-serif;
+
+// Clean, compact sizes (avoiding oversized headings)
+$doc-font-size: 13px; // Zara uses small and neat fonts
+
+// Colors
+$background-color: #ffffff;
+$text-color: #111111;
+$primary-color: #000000;
+$border-color: #e5e5e5;
+$code-background-color: #f7f7f7;
+$link-color: #000000;
+$link-color-hover: #777777;
+
+// Import Minimal Mistakes skin and core Sass
+@import "minimal-mistakes/skins/default";
+
+// Override skin colors to ensure pure black & white layout
+$gray: #7a7a7a;
+$dark-gray: #111111;
+$light-gray: #f2f2f2;
+$black: #000000;
+$white: #ffffff;
+
+@import "minimal-mistakes";
+
+// --- Custom Zara Style Overrides ---
+
+body {
+  font-family: $sans-serif;
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Compact, elegant headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $sans-serif !important;
+  font-weight: 300 !important; // Light weight
+  color: #000000 !important;
+  letter-spacing: 0.05em;
+  border-bottom: none !important; // remove default underlines under headers
+}
+
+h1 {
+  font-size: 1.5rem !important;
+}
+
+h2 {
+  font-size: 1.2rem !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+}
+
+h4 {
+  font-size: 0.95rem !important;
+}
+
+// Modern minimal elements (remove rounded corners, shadows, and default colors)
+.btn,
+.btn--inverse,
+.button {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: 1px solid #000000 !important;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+}
+
+// Masthead (header) customization for ZARA look (minimalist, bold, spaced)
+.masthead {
+  border-bottom: 1px solid #000000 !important;
+  padding: 0.4em 0 !important;
+
+  .site-title {
+    font-weight: 300 !important; // Light weight
+    letter-spacing: -0.03em !important; // tight letter spacing
+    font-size: 1.4rem !important;
+    color: #000000 !important;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .site-subtitle {
+    font-size: 0.7rem !important;
+    color: #777777 !important;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+
+  .visible-links {
+    .masthead__menu-item {
+      a {
+        font-weight: 400 !important; // Regular/light weight
+        letter-spacing: 0.08em;
+        font-size: 0.8rem !important;
+        color: #000000 !important;
+        padding-bottom: 3px;
+
+        &:hover {
+          color: #777777 !important;
+          border-bottom: 1px solid #000000;
+          text-decoration: none !important;
+        }
+      }
+    }
+  }
+}
+
+// Remove rounded corners on code blocks
+pre,
+code {
+  border-radius: 0 !important;
+}
+
+// Sidebar (author profile) layout customization
+.author__urls-wrapper {
+  button {
+    border-radius: 0 !important;
+  }
+}
+
+.author__avatar img {
+  border-radius: 0 !important; // square avatar
+  border: none !important; // remove border
+  padding: 0 !important; // remove border padding
+  box-shadow: none !important; // remove shadow
+  max-width: 130px !important; // slightly larger size (default is 110px)
+}
+
+// Compact pagination
+.pagination {
+  border-radius: 0 !important;
+
+  ul {
+    border-radius: 0 !important;
+
+    li a {
+      border-radius: 0 !important;
+      color: #000000 !important;
+      border: 1px solid #e5e5e5;
+
+      &:hover {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+      }
+    }
+
+    li.current a {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+      border-color: #000000;
+    }
+  }
+}
+
+// Remove default bold styling from headers, lists, and profiles
+strong,
+th,
+dt,
+b,
+.author__name,
+.archive__item-title a {
+  font-weight: 400 !important;
+}
+
+.author__name {
+  letter-spacing: -0.03em !important;
+}
+
+// Thinner full-width page footer
+.page__footer {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0.6em 0 !important;
+  margin-top: 2em !important;
+  
+  .page__footer-follow,
+  .page__footer-copyright {
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .page__footer-follow {
+    margin-bottom: 0.3em !important;
+  }
+}
+
+// Spacing between sidebar and content
+@media (min-width: 64em) {
+  #main {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    
+    .sidebar {
+      width: 220px !important;
+      margin-right: 40px !important; // reduced spacing
+      flex-shrink: 0 !important;
+    }
+    
+    .page, .archive {
+      flex-grow: 1 !important;
+      width: auto !important;
+      padding-right: 0 !important;
+    }
+  }
+}
+
+// Balance left and right outer margins for header and main content
+.masthead__inner-wrap,
+#main {
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
