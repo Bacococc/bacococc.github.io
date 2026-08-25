@@ -1,8 +1,8 @@
 ---
-title: "first post"
+title: "First Post"
 layout: single
 categories:
-  - Blog
+  - blog
 tags:
   - Jekyll
   - Minimal Mistakes

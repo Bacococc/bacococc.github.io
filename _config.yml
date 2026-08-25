@@ -12,6 +12,17 @@ description: "Developer Blog"
 url: "https://bacococc.github.io"
 repository: "bacococc/bacococc.github.io"
 
+# Author Profile Settings
+author:
+  name   : "Hyojin Park"
+  avatar : "/assets/images/profile.JPG"
+  bio    : "Developer Blog"
+  location: "Seoul, Korea"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/bacococc"
+
 # Plugins
 plugins:
   - jekyll-paginate
