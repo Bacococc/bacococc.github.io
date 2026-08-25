@@ -16,8 +16,9 @@ repository: "bacococc/bacococc.github.io"
 author:
   name   : "Hyojin Park"
   avatar : "/assets/images/profile.JPG"
-  bio    : "Developer Blog"
+  bio    : "Developer Blog ᜊ( ᜊ ´ ˘) ੭"
   location: "📍 KR ↔ JP"
+
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"

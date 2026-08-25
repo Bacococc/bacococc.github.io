@@ -3,6 +3,6 @@ layout: home
 author_profile: true
 ---
 
-# Hyojin Park
+## Welcome ଘ(੭˃ᴗ˂)━☆ﾟ.*･｡ﾟ
 
-Welcome to my developer blog!
+Welcome to my developer blog! 
