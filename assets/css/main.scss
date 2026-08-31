@@ -1,131 +1,148 @@
 ---
 ---
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
 
-
-
-// Zara style: clean sans-serif typography, high contrast black & white
+// Soft, cute typography stack and variables
 $sans-serif: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR";
+$heading-font: "Outfit", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif: $sans-serif;
 $primary-font: $sans-serif;
+$doc-font-size: 13px; // clean, compact base size
 
-// Clean, compact sizes (avoiding oversized headings)
-$doc-font-size: 13px; // Zara uses small and neat fonts
+// Pastel pink and sky blue color system
+$pastel-pink: #e48ca3;       // Primary Rose Pink
+$pastel-blue: #7baec2;       // Secondary Sky Blue
+$light-pink: #fcf4f7;        // Light background Pink
+$light-blue: #f3f8fb;        // Light background Blue
+$border-pink: #f7d6df;       // Pink border
+$border-blue: #dcebf2;       // Blue border
+$text-dark: #3c3c3c;         // Soft charcoal text for warm readability
 
-// Colors
 $background-color: #ffffff;
-$text-color: #111111;
-$primary-color: #000000;
-$border-color: #e5e5e5;
-$code-background-color: #f7f7f7;
-$link-color: #000000;
-$link-color-hover: #777777;
+$text-color: $text-dark;
+$primary-color: $pastel-pink;
+$border-color: $border-pink;
+$code-background-color: $light-blue;
+$link-color: $pastel-blue;
+$link-color-hover: $pastel-pink;
 
-// Import Minimal Mistakes skin and core Sass
+// Import default skin variables
 @import "minimal-mistakes/skins/default";
 
-// Override skin colors to ensure pure black & white layout
-$gray: #7a7a7a;
-$dark-gray: #111111;
-$light-gray: #f2f2f2;
-$black: #000000;
+// Override core color variables
+$gray: #888888;
+$dark-gray: $text-dark;
+$light-gray: $light-pink;
+$black: #222222;
 $white: #ffffff;
 
+// Import main theme styles
 @import "minimal-mistakes";
 
-// --- Custom Zara Style Overrides ---
+// --- Custom Kawaii Pastel Styling ---
 
 body {
   font-family: $sans-serif;
+  color: $text-dark;
   letter-spacing: -0.015em;
   -webkit-font-smoothing: antialiased;
 }
 
-// Compact, elegant headings
+// Rounded, friendly headings
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: $sans-serif !important;
-  font-weight: 300 !important; // Light weight
-  color: #000000 !important;
-  letter-spacing: 0.05em;
-  border-bottom: none !important; // remove default underlines under headers
+  font-family: $heading-font !important;
+  font-weight: 700 !important;
+  color: $text-dark !important;
+  letter-spacing: -0.02em;
+  border-bottom: none !important;
 }
 
 h1 {
   font-size: 1.5rem !important;
 }
 
+.page__title {
+  margin-top: 0.8em !important;
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  color: $pastel-pink !important;
+}
+
 h2 {
-  font-size: 1.2rem !important;
+  font-size: 1.25rem !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 0.8em !important;
 }
 
 h3 {
-  font-size: 1.05rem !important;
+  font-size: 1.1rem !important;
+  margin-top: 1.3em !important;
+  margin-bottom: 0.6em !important;
 }
 
 h4 {
   font-size: 0.95rem !important;
 }
 
-// Modern minimal elements (remove rounded corners, shadows, and default colors)
+// Rounded buttons with soft pastel color
 .btn,
 .btn--inverse,
 .button {
-  border-radius: 0 !important;
+  border-radius: 20px !important;
   box-shadow: none !important;
-  border: 1px solid #000000 !important;
+  border: 1px solid $pastel-pink !important;
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  font-family: $heading-font !important;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   background-color: #ffffff !important;
-  color: #000000 !important;
+  color: $pastel-pink !important;
   transition: all 0.2s ease;
+  padding: 0.4em 1.2em !important;
 
   &:hover {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    background-color: $light-pink !important;
+    color: $pastel-pink !important;
+    border-color: $pastel-pink !important;
   }
 }
 
-// Masthead (header) customization for ZARA look (minimalist, bold, spaced)
+// Cute dashed masthead (Header)
 .masthead {
-  border-bottom: 1px solid #000000 !important;
-  padding: 0.4em 0 !important;
+  border-bottom: 2px dashed $border-pink !important;
+  padding: 0.6em 0 !important;
 
   .site-title {
-    font-weight: 300 !important; // Light weight
-    letter-spacing: -0.03em !important; // tight letter spacing
+    font-family: $heading-font !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
     font-size: 1.4rem !important;
-    color: #000000 !important;
+    color: $pastel-pink !important;
 
     &:hover {
-      opacity: 0.7;
+      color: $pastel-blue !important;
     }
-  }
-
-  .site-subtitle {
-    font-size: 0.7rem !important;
-    color: #777777 !important;
-    letter-spacing: 0.08em;
-    margin-top: 2px;
   }
 
   .visible-links {
     .masthead__menu-item {
       a {
-        font-weight: 400 !important; // Regular/light weight
-        letter-spacing: 0.08em;
-        font-size: 0.8rem !important;
-        color: #000000 !important;
+        font-family: $heading-font !important;
+        font-weight: 600 !important;
+        font-size: 0.85rem !important;
+        color: $pastel-blue !important;
         padding-bottom: 3px;
+        border-bottom: 1px solid transparent;
 
         &:hover {
-          color: #777777 !important;
-          border-bottom: 1px solid #000000;
+          color: $pastel-pink !important;
+          border-bottom: 1px dashed $pastel-pink;
           text-decoration: none !important;
         }
       }
@@ -133,81 +150,197 @@ h4 {
   }
 }
 
-// Remove rounded corners on code blocks
+// Custom code block styling (Soft blue and rounded)
 pre,
 code {
-  border-radius: 0 !important;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace !important;
 }
 
-// Sidebar (author profile) layout customization
+pre {
+  border-radius: 12px !important;
+  border: 1px solid $border-blue !important;
+  background-color: $light-blue !important;
+  padding: 1em !important;
+  
+  code {
+    background-color: transparent !important;
+    color: $text-dark !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+}
+
+// Transparent background for parent highlight wrappers to prevent black corners
+div.highlight,
+div.highlighter-rouge,
+div.highlighter-rouge div.highlight {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+}
+
+// High-contrast, readable syntax highlighting for light background
+.highlight {
+  color: #3c3c3c !important;
+  
+  .c, .ch, .cm, .c1 { color: #9a9a9a !important; font-style: italic !important; } // comments
+  .k, .kd, .kn, .kp, .kr, .kt { color: #c85070 !important; font-weight: bold !important; } // keywords
+  .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: #2c6882 !important; } // strings (high contrast dark blue-teal)
+  .na, .nb, .nc, .no, .nd, .ni, .ne, .nf, .fm, .py { color: #3b758e !important; } // attributes / functions
+  .m, .mb, .mx, .mo, .mi, .mf, .mh, .il { color: #c85070 !important; } // numbers
+  .o, .ow { color: #3c3c3c !important; } // operators
+  .p { color: #555555 !important; } // punctuation
+  .nt { color: #c85070 !important; } // tags
+  .pi { color: #3c3c3c !important; } // yaml/json keys
+  .err { color: #c85070 !important; } // error
+}
+
+// Cute inline code formatting (Soft pink background)
+p code,
+li code {
+  background-color: $light-pink !important;
+  color: $pastel-pink !important;
+  padding: 2px 6px !important;
+  border-radius: 6px !important;
+  font-size: 0.85em !important;
+  border: 1px solid $border-pink !important;
+}
+
+// Rounded sidebar profile
 .author__urls-wrapper {
   button {
-    border-radius: 0 !important;
+    border-radius: 20px !important;
+    border: 1px solid $pastel-blue !important;
+    color: $pastel-blue !important;
+    background-color: #ffffff !important;
+    
+    &:hover {
+      background-color: $light-blue !important;
+    }
   }
 }
 
 .author__avatar img {
-  border-radius: 0 !important; // square avatar
-  border: none !important; // remove border
-  padding: 0 !important; // remove border padding
-  box-shadow: none !important; // remove shadow
-  max-width: 130px !important; // slightly larger size (default is 110px)
+  border-radius: 24px !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  max-width: 130px !important;
+  transition: none !important;
 }
 
-// Compact pagination
+.author__avatar,
+.author__avatar a,
+.author__avatar img {
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  transform: none !important;
+  transition: none !important;
+  border: none !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+
+  &:hover, &:focus, &:active,
+  a:hover, a:focus, a:active {
+    opacity: 1 !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    transform: none !important;
+    transition: none !important;
+    border: none !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// Explicit override for parent hover on the image child
+.author__avatar:hover img,
+.author__avatar a:hover img {
+  opacity: 1 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  transform: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+// Disable default theme opacity transitions on the entire sidebar container
+.sidebar {
+  opacity: 1 !important;
+  transition: none !important;
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+.author__name {
+  font-family: $heading-font !important;
+  font-weight: 700 !important;
+  color: $text-dark !important;
+  letter-spacing: -0.02em !important;
+}
+
+.author__bio {
+  font-size: 0.85rem !important;
+  color: #666666 !important;
+}
+
+// Rounded pagination
 .pagination {
-  border-radius: 0 !important;
+  border-radius: 20px !important;
 
   ul {
-    border-radius: 0 !important;
+    border-radius: 20px !important;
 
     li a {
-      border-radius: 0 !important;
-      color: #000000 !important;
-      border: 1px solid #e5e5e5;
+      border-radius: 20px !important;
+      color: $pastel-pink !important;
+      border: 1px solid $border-pink !important;
 
       &:hover {
-        background-color: #000000 !important;
-        color: #ffffff !important;
+        background-color: $light-pink !important;
+        color: $pastel-pink !important;
+        border-color: $pastel-pink !important;
       }
     }
 
     li.current a {
-      background-color: #000000 !important;
+      background-color: $pastel-pink !important;
       color: #ffffff !important;
-      border-color: #000000;
+      border-color: $pastel-pink !important;
     }
   }
 }
 
-// Remove default bold styling from headers, lists, and profiles
-strong,
-th,
-dt,
-b,
-.author__name,
-.archive__item-title a {
-  font-weight: 400 !important;
-}
-
-.author__name {
-  letter-spacing: -0.03em !important;
-}
-
-// Thinner full-width page footer
+// Slim pastel pink footer
 .page__footer {
   width: 100% !important;
   max-width: none !important;
-  padding: 0.6em 0 !important;
-  margin-top: 2em !important;
-  
+  padding: 1em 0 !important;
+  margin-top: 3em !important;
+  background-color: $light-pink !important;
+  border-top: 1px dashed $border-pink !important;
+
   .page__footer-follow,
   .page__footer-copyright {
     max-width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding-left: 40px !important;
-    padding-right: 40px !important;
+    padding-right: 80px !important;
+    color: $pastel-pink !important;
+    
+    a {
+      color: $pastel-blue !important;
+      font-weight: 600 !important;
+      
+      &:hover {
+        color: $pastel-pink !important;
+      }
+    }
   }
 
   .page__footer-follow {
@@ -215,33 +348,43 @@ b,
   }
 }
 
-// Spacing between sidebar and content
+// Desktop grid alignment
 @media (min-width: 64em) {
   #main {
     display: flex !important;
+    flex-wrap: wrap !important;
     justify-content: flex-start !important;
     align-items: flex-start !important;
     
     .sidebar {
       width: 220px !important;
-      margin-right: 40px !important; // reduced spacing
+      margin-right: 40px !important;
       flex-shrink: 0 !important;
     }
     
     .page, .archive {
-      flex-grow: 1 !important;
-      width: auto !important;
+      width: calc(100% - 260px) !important;
       padding-right: 0 !important;
     }
   }
+
+  // Related posts spacing
+  .page__related {
+    flex-basis: 100% !important;
+    margin-left: 260px !important;
+    width: calc(100% - 260px) !important;
+    margin-top: 3em !important;
+    padding-top: 2em !important;
+    border-top: 2px dashed $border-pink !important;
+  }
 }
 
-// Balance left and right outer margins for header and main content
+// Edge layout limits
 .masthead__inner-wrap,
 #main {
   max-width: 100% !important;
   margin-left: auto !important;
   margin-right: auto !important;
   padding-left: 40px !important;
-  padding-right: 40px !important;
+  padding-right: 80px !important;
 }
