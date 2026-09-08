@@ -1,8 +1,8 @@
 ---
-title: "First Post"
+title: "[CS/OS] 프로그램과 프로세스, 포트와 소켓의 기본 원리(+ 리눅스)"
 layout: single
 categories:
-  - blog
+  - Blog
 tags:
   - Jekyll
   - Minimal Mistakes
