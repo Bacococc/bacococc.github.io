@@ -3,6 +3,8 @@ theme: "minimal-mistakes-jekyll"
 minimal_mistakes_skin: "dirt"
 
 # Site Settings
+timezone: "Asia/Seoul"
+future: true
 locale: "ko-KR"
 title: "Hyojin Park"
 title_separator: ""
