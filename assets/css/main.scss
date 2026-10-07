@@ -4,20 +4,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 // Soft, cute typography stack and variables
-$sans-serif: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR";
-$heading-font: "Outfit", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Helvetica Neue", sans-serif;
+$heading-font: "Outfit", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
 $serif: $sans-serif;
 $primary-font: $sans-serif;
 $doc-font-size: 13px; // clean, compact base size
 
 // Pastel pink and sky blue color system
-$pastel-pink: #e48ca3;       // Primary Rose Pink
-$pastel-blue: #7baec2;       // Secondary Sky Blue
-$light-pink: #fcf4f7;        // Light background Pink
-$light-blue: #f3f8fb;        // Light background Blue
-$border-pink: #f7d6df;       // Pink border
-$border-blue: #dcebf2;       // Blue border
-$text-dark: #3c3c3c;         // Soft charcoal text for warm readability
+$pastel-pink: #e48ca3; // Primary Rose Pink
+$pastel-blue: #7baec2; // Secondary Sky Blue
+$light-pink: #fcf4f7; // Light background Pink
+$light-blue: #f3f8fb; // Light background Blue
+$border-pink: #f7d6df; // Pink border
+$border-blue: #dcebf2; // Blue border
+$text-dark: #3c3c3c; // Soft charcoal text for warm readability
 
 $background-color: #ffffff;
 $text-color: $text-dark;
@@ -42,12 +42,47 @@ $white: #ffffff;
 
 // --- Custom Kawaii Pastel Styling ---
 
+html,
+body,
+#main,
+.initial-content,
+.page,
+.archive,
+.masthead {
+  background-color: #ffffff !important;
+}
+
 body {
   font-family: $sans-serif;
   color: $text-dark;
   letter-spacing: -0.015em;
   -webkit-font-smoothing: antialiased;
 }
+
+a {
+  color: $pastel-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: $pastel-pink;
+    text-decoration: none;
+  }
+}
+
+.archive__item-title {
+  font-family: $heading-font !important;
+  font-weight: 700 !important;
+
+  a {
+    color: $text-dark !important;
+    text-decoration: none !important;
+
+    &:hover {
+      color: $pastel-pink !important;
+    }
+  }
+}
+
 
 // Rounded, friendly headings
 h1,
@@ -113,10 +148,16 @@ h4 {
   }
 }
 
-// Cute dashed masthead (Header)
+// Cute borderless masthead with top-right home icon
 .masthead {
-  border-bottom: 2px dashed $border-pink !important;
-  padding: 0.6em 0 !important;
+  border-bottom: none !important;
+  padding: 0.8em 0 !important;
+
+  .masthead__inner-wrap {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
 
   .site-title {
     font-family: $heading-font !important;
@@ -130,25 +171,61 @@ h4 {
     }
   }
 
-  .visible-links {
-    .masthead__menu-item {
-      a {
-        font-family: $heading-font !important;
-        font-weight: 600 !important;
-        font-size: 0.85rem !important;
-        color: $pastel-blue !important;
-        padding-bottom: 3px;
-        border-bottom: 1px solid transparent;
+  .masthead__menu {
+    display: block !important;
+    margin: 0 !important;
+    float: none !important;
 
-        &:hover {
+    ul,
+    .visible-links {
+      display: flex !important;
+      align-items: center !important;
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      li.masthead__menu-item {
+        margin: 0 !important;
+        padding: 0 !important;
+
+        a {
           color: $pastel-pink !important;
-          border-bottom: 1px dashed $pastel-pink;
+          font-size: 1.3rem !important;
+          padding: 0.4em 0.5em !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
           text-decoration: none !important;
+          border-bottom: none !important;
+          box-shadow: none !important;
+          outline: none !important;
+          transition: color 0.2s ease, transform 0.2s ease !important;
+
+          &::before,
+          &::after {
+            display: none !important;
+            content: none !important;
+            border: none !important;
+          }
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: $pastel-blue !important;
+            transform: scale(1.15) !important;
+            background: transparent !important;
+            text-decoration: none !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+          }
         }
+
       }
     }
   }
 }
+
 
 // Custom code block styling (Soft blue and rounded)
 pre,
@@ -161,7 +238,7 @@ pre {
   border: 1px solid $border-blue !important;
   background-color: $light-blue !important;
   padding: 1em !important;
-  
+
   code {
     background-color: transparent !important;
     color: $text-dark !important;
@@ -183,17 +260,97 @@ div.highlighter-rouge div.highlight {
 // High-contrast, readable syntax highlighting for light background
 .highlight {
   color: #3c3c3c !important;
-  
-  .c, .ch, .cm, .c1 { color: #9a9a9a !important; font-style: italic !important; } // comments
-  .k, .kd, .kn, .kp, .kr, .kt { color: #c85070 !important; font-weight: bold !important; } // keywords
-  .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: #2c6882 !important; } // strings (high contrast dark blue-teal)
-  .na, .nb, .nc, .no, .nd, .ni, .ne, .nf, .fm, .py { color: #3b758e !important; } // attributes / functions
-  .m, .mb, .mx, .mo, .mi, .mf, .mh, .il { color: #c85070 !important; } // numbers
-  .o, .ow { color: #3c3c3c !important; } // operators
-  .p { color: #555555 !important; } // punctuation
-  .nt { color: #c85070 !important; } // tags
-  .pi { color: #3c3c3c !important; } // yaml/json keys
-  .err { color: #c85070 !important; } // error
+
+  .c,
+  .ch,
+  .cm,
+  .c1 {
+    color: #9a9a9a !important;
+    font-style: italic !important;
+  }
+
+  // comments
+  .k,
+  .kd,
+  .kn,
+  .kp,
+  .kr,
+  .kt {
+    color: #c85070 !important;
+    font-weight: bold !important;
+  }
+
+  // keywords
+  .s,
+  .sa,
+  .sb,
+  .sc,
+  .dl,
+  .sd,
+  .s2,
+  .se,
+  .sh,
+  .si,
+  .sx,
+  .sr,
+  .s1,
+  .ss {
+    color: #2c6882 !important;
+  }
+
+  // strings (high contrast dark blue-teal)
+  .na,
+  .nb,
+  .nc,
+  .no,
+  .nd,
+  .ni,
+  .ne,
+  .nf,
+  .fm,
+  .py {
+    color: #3b758e !important;
+  }
+
+  // attributes / functions
+  .m,
+  .mb,
+  .mx,
+  .mo,
+  .mi,
+  .mf,
+  .mh,
+  .il {
+    color: #c85070 !important;
+  }
+
+  // numbers
+  .o,
+  .ow {
+    color: #3c3c3c !important;
+  }
+
+  // operators
+  .p {
+    color: #555555 !important;
+  }
+
+  // punctuation
+  .nt {
+    color: #c85070 !important;
+  }
+
+  // tags
+  .pi {
+    color: #3c3c3c !important;
+  }
+
+  // yaml/json keys
+  .err {
+    color: #c85070 !important;
+  }
+
+  // error
 }
 
 // Cute inline code formatting (Soft pink background)
@@ -214,7 +371,7 @@ li code {
     border: 1px solid $pastel-blue !important;
     color: $pastel-blue !important;
     background-color: #ffffff !important;
-    
+
     &:hover {
       background-color: $light-blue !important;
     }
@@ -222,13 +379,14 @@ li code {
 }
 
 .author__avatar img {
-  border-radius: 24px !important;
+  border-radius: 0 !important;
   border: none !important;
   padding: 0 !important;
   box-shadow: none !important;
   max-width: 130px !important;
   transition: none !important;
 }
+
 
 .author__avatar,
 .author__avatar a,
@@ -242,8 +400,12 @@ li code {
   text-decoration: none !important;
   box-shadow: none !important;
 
-  &:hover, &:focus, &:active,
-  a:hover, a:focus, a:active {
+  &:hover,
+  &:focus,
+  &:active,
+  a:hover,
+  a:focus,
+  a:active {
     opacity: 1 !important;
     filter: none !important;
     -webkit-filter: none !important;
@@ -332,11 +494,11 @@ li code {
     padding-left: 40px !important;
     padding-right: 80px !important;
     color: $pastel-pink !important;
-    
+
     a {
       color: $pastel-blue !important;
       font-weight: 600 !important;
-      
+
       &:hover {
         color: $pastel-pink !important;
       }
@@ -355,14 +517,15 @@ li code {
     flex-wrap: wrap !important;
     justify-content: flex-start !important;
     align-items: flex-start !important;
-    
+
     .sidebar {
       width: 220px !important;
       margin-right: 40px !important;
       flex-shrink: 0 !important;
     }
-    
-    .page, .archive {
+
+    .page,
+    .archive {
       width: calc(100% - 260px) !important;
       padding-right: 0 !important;
     }
@@ -387,4 +550,91 @@ li code {
   margin-right: auto !important;
   padding-left: 40px !important;
   padding-right: 80px !important;
+}
+
+// --- Post Content & Image Layout & Spacing Improvements ---
+.page__content {
+  p {
+    line-height: 1.85 !important;
+    margin-bottom: 1.6rem !important;
+  }
+
+  // Controlled, elegant image sizing and generous top/bottom spacing
+  img,
+  .align-center {
+    display: block !important;
+    max-width: 85% !important;
+    height: auto !important;
+    margin: 2.5rem auto !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  }
+
+  // Generous spacing for section headings
+  h2 {
+    margin-top: 3.2rem !important;
+    margin-bottom: 1.4rem !important;
+    padding-bottom: 0.4rem;
+  }
+
+  h3 {
+    margin-top: 2.2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  // Soft blockquotes with clean rounded style (no left border bar)
+  blockquote {
+    margin: 2.2rem 0 !important;
+    padding: 1.1rem 1.4rem !important;
+    background-color: $light-pink !important;
+    border: none !important;
+    border-left: none !important;
+    border-radius: 10px !important;
+    font-size: 0.95rem !important;
+
+    p {
+      margin-bottom: 0 !important;
+      line-height: 1.7 !important;
+    }
+  }
+
+  // Decorative horizontal dividers with comfortable breathing room
+  hr {
+    margin: 3.5rem 0 !important;
+    border: none !important;
+    border-top: 2px dashed $border-pink !important;
+  }
+
+  ul,
+  ol {
+    margin-bottom: 1.8rem !important;
+
+    li {
+      margin-bottom: 0.5rem !important;
+      line-height: 1.75 !important;
+    }
+  }
+}
+
+// Hide Previous/Next post navigation buttons
+.pagination--pager,
+.page__pagination,
+nav.pagination {
+  display: none !important;
+}
+
+// Home page welcome intro spacing & Recent posts subtitle margin
+.archive {
+  .page__content {
+    margin-bottom: 3.2rem !important;
+  }
+}
+
+.archive__subtitle {
+  margin-top: 3.5rem !important;
+  margin-bottom: 1.6rem !important;
+  padding-bottom: 0.4rem !important;
+  color: #777777 !important;
+  font-weight: 600 !important;
 }
