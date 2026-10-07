@@ -12,7 +12,7 @@ tags:
 
 스터디 활동을 진행하며 내가 맡게 된 발표 주제에 대해 정리한 내용이다.
 
-![튜토링 현장](/assets/images/IMG_1543.jpg){: .align-center}
+![튜터링 현장](/assets/images/IMG_1543.jpg){: .align-center}
 
 ## Process / Port / Linux / 실행 구조
 
