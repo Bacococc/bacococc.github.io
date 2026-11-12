@@ -18,7 +18,7 @@ tags:
 
 나는 그중 Linux의 Process와 Port를 중심으로 발표를 준비하였다.
 
-![튜터링 현장](/assets/images/IMG_1543.jpg){: .align-center}
+![튜터링 현장](/assets/images/튜터링현장_1.jpg){: .align-center}
 
 처음에는 서버가 켜져 있고 프로그램이 실행 중이면 서비스도 당연히 정상이라고 생각하기 쉬웠다.
 
